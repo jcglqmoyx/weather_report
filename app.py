@@ -5,6 +5,7 @@ from datetime import datetime
 import requests
 from flask import Flask, request
 from flask import render_template
+from gevent import pywsgi
 
 import json
 
@@ -35,4 +36,5 @@ def weather():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=config['port'])
+    server = pywsgi.WSGIServer(('0.0.0.0', config['port']), app)
+    server.serve_forever()
