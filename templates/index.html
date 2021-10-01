@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        background: antiquewhite;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data['cityInfo']['city'] }}天气预报 </title>
+</head>
+<body>
+<h1>{{ data['cityInfo']['city'] }}天气预报</h1>
+<b>温度 </b>{{ data['data']['wendu'] }}<br>
+<b>湿度 </b>{{ data['data']['shidu'] }}<br>
+<b>空气质量 </b>{{ data['data']['quality'] }}<br>
+<b>PM2.5 </b>{{ data['data']['pm25'] }}<br>
+<b>PM10 </b>{{ data['data']['pm10'] }}<br><br>
+<h2>未来{{ days }}天天气预报</h2>
+{% for weather in data['data']['forecast'] %}
+    {% if loop.index <= days %}
+        <b>日期 </b>{{ weather['ymd'] }}<br>
+        <b>天气 </b>{{ weather['type'] }}<br>
+        <b>温度 </b>{{ weather['high'] }} {{ weather['low'] }}<br>
+        <b>日出 </b>{{ weather['sunrise'] }}<br>
+        <b>日落 </b>{{ weather['sunset'] }}<br>
+        <b>空气质量 </b>{{ weather['aqi'] }}<br>
+        <b>风向 </b>{{ weather['fx'] }}<br>
+        <b>风力 </b>{{ weather['fl'] }}<br>
+    {% endif %}
+    <br>
+{% endfor %}
+</body>
+</html>

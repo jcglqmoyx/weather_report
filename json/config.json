@@ -1,0 +1,7 @@
+{
+  "days": 5,
+  "city_code": "101020200",
+  "api": "http://t.weather.itboy.net/api/weather/city/",
+  "port": 8000,
+  "update-interval": 60
+}
