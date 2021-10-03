@@ -14,7 +14,6 @@ config = json.load(open('json/config.json', 'r'))
 last_call_time = datetime.fromisoformat('2008-10-10').timestamp()
 http_response = None
 cnt = 0
-print('hello world')
 
 @app.route('/')
 def weather():
